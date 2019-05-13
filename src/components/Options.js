@@ -11,8 +11,7 @@ export class  Options extends React.Component {
     
     console.log("Hola manejo el click");
     console.log(event);
-    // console.log(event.target.value);
-    // console.log(event.target.innerHTML);
+ 
   }
 
   render(){

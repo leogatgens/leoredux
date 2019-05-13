@@ -2,10 +2,9 @@ import React from 'react';
 
 
 
-var styles1 = {
-    margin: '20px',
-    width: '350px',
-    height: '250px',
+var styles1 = {    
+    width: '550px',
+    height: '350px',
     backgroundColor: 'yellow',
     float : 'left',
     display: 'inline-block',

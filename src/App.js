@@ -8,7 +8,7 @@ import { Options } from './components/Options';
 
 function App() {
   return (
-    <div>
+    <div style={{background:"red", height : 500} }>
     <Title></Title>
     <AuthorImage></AuthorImage>
     <Options></Options>

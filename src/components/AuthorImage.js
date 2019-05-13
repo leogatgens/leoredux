@@ -1,4 +1,5 @@
 import React from 'react';
+import { tsPropertySignature } from '@babel/types';
 
 
 
@@ -9,9 +10,15 @@ var styles1 = {
     float : 'left',
     display: 'inline-block',
   };
-export function AuthorImage() {
+export function AuthorImage(props) {
+
+  function manejarEventoClick(){
+    props.eventoCambioColor();
+  }
+
+
   return (<div style={styles1}>
     <img src='http://localhost:3000/descarga.jfif' alt="logo" />
-    <button>presioname</button>
+    <button onClick={manejarEventoClick}>presioname</button>
   </div>);
 }

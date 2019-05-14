@@ -1,4 +1,6 @@
 import { createStore } from 'redux'
+import { ActionTypes as types} from '../ActionTypes';
+
 
 var defaultState = {
   colorDivPrincipal : 'red',
@@ -6,17 +8,18 @@ var defaultState = {
 }
 
 
+
 function colorsreducer(state = defaultState, action) {
   console.log({ 'action' : action.type ,
   valor : action.data});
   switch (action.type) {
-    case 'CHANGE_COLOR':       
+    case types.CHANGE_COLOR :       
       return {
         ...state,
         colorDivPrincipal : action.data
         
        };
-      case 'CHANGE_COLOR_OPTIONS':       
+      case types.CHANGE_COLOR_OPTIONS:       
       return {
         ...state,        
         optionsBackgroundColor : action.data 

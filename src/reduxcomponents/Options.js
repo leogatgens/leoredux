@@ -1,12 +1,10 @@
 import React from 'react';
 import store from '../stores/configureStore'
+import { ActionTypes as types} from '../ActionTypes';
 const opciones = ['Opcion 1','Opcion 2','Opcion 3','Opcion 4','Opcion 5','Opcion 6'];
 
 export class  Options extends React.Component { 
-  constructor(props){
-      super(props);
- 
-  }
+
   componentDidMount(){
     store.subscribe(() => {
       this.setState({});
@@ -16,12 +14,12 @@ export class  Options extends React.Component {
    handleClick = (event) => {    
     if(event === 'Opcion 5'){
       store.dispatch({
-        type: 'CHANGE_COLOR_OPTIONS',
+        type: types.CHANGE_COLOR_OPTIONS,
         data: 'green'
       })
     }else{
       store.dispatch({
-        type: 'CHANGE_COLOR_OPTIONS',
+        type: types.CHANGE_COLOR_OPTIONS,
         data: 'blue'
       })
     }
@@ -30,7 +28,7 @@ export class  Options extends React.Component {
 
    manejarEventoClick(){
     store.dispatch({
-      type: 'CHANGE_COLOR',
+      type: types.CHANGE_COLOR,
       data: 'white'
     })
   }

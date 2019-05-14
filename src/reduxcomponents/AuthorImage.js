@@ -1,5 +1,6 @@
 import React from 'react';
-import { tsPropertySignature } from '@babel/types';
+import { ActionTypes as types} from '../ActionTypes';
+
 import store from '../stores/configureStore'
 
 
@@ -14,7 +15,7 @@ export function AuthorImage(props) {
 
   function manejarEventoClick(){
     store.dispatch({
-      type: 'CHANGE_COLOR',
+      type: types.CHANGE_COLOR,
       data: 'purple'
     })
   }

@@ -18,12 +18,20 @@ componentDidMount(){
   })  
 }  
 
+manejarEventoClick(){
+  store.dispatch({
+    type: 'CHANGE_COLOR',
+    data: 'Maroon'
+  })
+}
+
 render(){  
   return (
     <div style={{background:store.getState().colorDivPrincipal, height : 500} }>
     <Title></Title>
     <AuthorImage></AuthorImage>
     <Options></Options>
+    <button onClick={this.manejarEventoClick}>presioname</button>
     </div>
   );
 }

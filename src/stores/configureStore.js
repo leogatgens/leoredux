@@ -1,24 +1,32 @@
 import { createStore } from 'redux'
 
 var defaultState = {
-  colorDivPrincipal : 'red'
+  colorDivPrincipal : 'red',
+  optionsBackgroundColor : 'blue'
 }
 
 
-function todosreducer(state = defaultState, action) {
-  console.log({ state} );
+function colorsreducer(state = defaultState, action) {
+  console.log({ 'action' : action.type ,
+  valor : action.data});
   switch (action.type) {
-    case 'ADD_TODO':       
+    case 'CHANGE_COLOR':       
       return {
         ...state,
         colorDivPrincipal : action.data
+        
+       };
+      case 'CHANGE_COLOR_OPTIONS':       
+      return {
+        ...state,        
+        optionsBackgroundColor : action.data 
        };
     default:
       return state
   }
 }
 
-const store = createStore(todosreducer)
+const store = createStore(colorsreducer)
 
 
 

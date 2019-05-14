@@ -14,7 +14,7 @@ export function AuthorImage(props) {
 
   function manejarEventoClick(){
     store.dispatch({
-      type: 'ADD_TODO',
+      type: 'CHANGE_COLOR',
       data: 'purple'
     })
   }

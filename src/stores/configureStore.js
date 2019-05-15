@@ -3,7 +3,7 @@ import { ActionTypes as types} from '../ActionTypes';
 
 
 var defaultState = {
-  colorDivPrincipal : 'red',
+  colorDivPrincipal : 'white',
   optionsBackgroundColor : 'blue'
 }
 

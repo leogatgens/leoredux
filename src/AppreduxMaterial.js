@@ -25,18 +25,14 @@ manejarEventoClick(){
 
 render(){  
   return (
-    <div>
-    <div style={{background:store.getState().colorDivPrincipal, height : 500} }>
+    <React.Fragment>
+    <div style={{background:store.getState().colorDivPrincipal, height : 700} }>
      <Header></Header> 
      <TabPrincipal></TabPrincipal>
-     <Footer data = {Continents}></Footer>
+     <Footer data = {Continents}></Footer>    
+    </div>
   
-    <button onClick={this.manejarEventoClick}>presioname</button>
-    </div>
-    <div>
-      
-    </div>
-    </div>
+    </React.Fragment>
   );
 }
 }

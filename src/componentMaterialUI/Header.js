@@ -10,7 +10,7 @@ import { Typography } from '@material-ui/core';
      <AppBar position="static">
       <Toolbar>
         <Typography variant ="headline" color="inherit">
-          Aplicacion para practicar React
+          Países del planeta tierra
         </Typography>       
       </Toolbar>
   </AppBar>

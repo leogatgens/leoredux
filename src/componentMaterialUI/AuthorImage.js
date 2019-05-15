@@ -1,6 +1,5 @@
 import React from 'react';
 import { ActionTypes as types} from '../ActionTypes';
-
 import store from '../stores/configureStore'
 
 
@@ -21,8 +20,9 @@ export function AuthorImage(props) {
   }
 
 
-  return (<div style={styles1}>
+  return ( <React.Fragment>
     <img src='http://localhost:3000/descarga.jfif' alt="logo" />
     <button onClick={manejarEventoClick}>presioname</button>
-  </div>);
+    </React.Fragment>
+      );
 }

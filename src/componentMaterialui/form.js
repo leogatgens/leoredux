@@ -1,15 +1,52 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import React from './node_modules/react';
+import Grid from './node_modules/@material-ui/core/Grid';
+import Typography from './node_modules/@material-ui/core/Typography';
+import TextField from './node_modules/@material-ui/core/TextField';
+import Button from './node_modules/@material-ui/core/Button';
 
+
+import classNames from './node_modules/classnames';
+import PropTypes from './node_modules/prop-types';
+import { withStyles } from './node_modules/@material-ui/core/styles';
+import IconButton from './node_modules/@material-ui/core/IconButton';
+import InputAdornment from './node_modules/@material-ui/core/InputAdornment';
+import MenuItem from './node_modules/@material-ui/core/MenuItem';
+
+
+const styles = theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  margin: {
+    margin: theme.spacing.unit,
+  },
+  textField: {
+    flexBasis: 200,
+  },
+});
+const ranges = [
+  {
+    value: '0-20',
+    label: '0 to 20',
+  },
+  {
+    value: '21-50',
+    label: '21 to 50',
+  },
+  {
+    value: '51-100',
+    label: '51 to 100',
+  },
+];
 function AddressForm() {
+  function HandleSaving(){
+   console.log('saving'); 
+  }
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Shipping address
+        Ingresa un nuevo escritor.
       </Typography>
       <Grid container spacing={24}>
         <Grid item xs={12} sm={6}>
@@ -32,65 +69,32 @@ function AddressForm() {
             autoComplete="lname"
           />
         </Grid>
-        <Grid item xs={12}>
-          <TextField
-            required
-            id="address1"
-            name="address1"
-            label="Address line 1"
-            fullWidth
-            autoComplete="billing address-line1"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            id="address2"
-            name="address2"
-            label="Address line 2"
-            fullWidth
-            autoComplete="billing address-line2"
-          />
-        </Grid>
+       
+      
+  
         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="city"
-            name="city"
-            label="City"
-            fullWidth
-            autoComplete="billing address-level2"
-          />
+         
+        <TextField
+          select        
+          variant="filled"
+          label="With Select"        
+          InputProps={{
+            startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
+          }}
+        >
+          {ranges.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField id="state" name="state" label="State/Province/Region" fullWidth />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="zip"
-            name="zip"
-            label="Zip / Postal code"
-            fullWidth
-            autoComplete="billing postal-code"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="country"
-            name="country"
-            label="Country"
-            fullWidth
-            autoComplete="billing country"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-            label="Use this address for payment details"
-          />
-        </Grid>
+       
       </Grid>
+      <Button variant="outlined" color="primary" onClick={HandleSaving} >
+        Guardar
+      </Button>
+     
     </React.Fragment>
   );
 }

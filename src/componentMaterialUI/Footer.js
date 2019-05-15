@@ -32,9 +32,13 @@ class Footer extends React.Component {
           textColor="primary"
           centered
         >
-          <Tab label="Item One" />
-          <Tab label="Item Two" />
-          <Tab label="Item Three" />
+        {
+          this.props.data.map((item) =>{
+            return  <Tab label={item} />
+          })
+
+        }         
+       
         </Tabs>
       </Paper>
     );

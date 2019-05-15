@@ -1,10 +1,12 @@
 import React from 'react';
 import store from '../stores/configureStore'
 import { ActionTypes as types} from '../ActionTypes';
-const opciones = ['Opcion 1','Opcion 2','Opcion 3','Opcion 4','Opcion 5','Opcion 6'];
+
 
 export class  Options extends React.Component { 
-
+constructor(props){
+  super(props);
+}
   componentDidMount(){
     store.subscribe(() => {
       this.setState({});
@@ -36,7 +38,7 @@ export class  Options extends React.Component {
   return (<div style={{ backgroundColor : store.getState().optionsBackgroundColor }}>
     <ul>
     {
-      opciones.map((item) => {
+      this.props.data.map((item) => {
         // Construct the onClick with our bound function
         return <li key={item} onClick={this.handleClick.bind(this,item)} >{item}</li>
       })

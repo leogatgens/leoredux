@@ -10,6 +10,8 @@ import Paper from '@material-ui/core/Paper';
 import {AuthorImage} from './AuthorImage'
 import {Options} from './Options'
 
+import {paises,opciones} from '../containerMaterialUI/data'
+
 const styles =  ({
   Paper : {padding : 20, marginTop : 20, marginBottom : 10}
 });
@@ -38,7 +40,7 @@ class TabPrincipal extends React.Component {
         </Grid>
         <Grid item sm>
         <Paper style={styles.Paper}>
-            <Options></Options>
+            <Options data={opciones}></Options>
          </Paper>
          
         </Grid>

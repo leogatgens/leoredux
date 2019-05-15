@@ -14,7 +14,7 @@ constructor(props){
   };
 }
 
- generate() {
+generate() {
   return this.props.data.map(value =>
         <ListItem onClick={this.handleClick.bind(this,value)} key= {value}>
             <ListItemText
@@ -24,15 +24,11 @@ constructor(props){
           </ListItem>,
   );
 }
-  componentDidMount(){
-    store.subscribe(() => {
-      this.setState({});
-    })  
-  }  
+  
 
-   handleClick = (event) => {    
+handleClick = (event) => {    
      console.log(event);
-    if(event === 'Brazil'){
+    if(event === store.getState().country){
       store.dispatch({
         type: types.CHANGE_COLOR,
         data: 'green'
@@ -42,16 +38,10 @@ constructor(props){
         type: types.CHANGE_COLOR,
         data: 'red'
       })
-    }
-     
-  }
-
-   
-  render(){
-    
+    }     
+  }   
+  render(){    
     const { dense, secondary } = this.state;
-
-
   return (
     <Grid item xs={12} md={6}>
     <Typography variant="h6" >

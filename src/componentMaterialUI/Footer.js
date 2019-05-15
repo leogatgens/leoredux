@@ -19,7 +19,7 @@ class Footer extends React.Component {
 
   handleChange = (event, value) => {
     store.dispatch({
-      type: types.CHANGE_COLOR,
+      type: types.REQUEST_OTHERS_COUNTRIES,
       data: 'white'
     })
     this.setState({ value });

@@ -5,6 +5,6 @@ export var ActionTypes = keyMirror({
   CHANGE_COLOR: null,
   CHANGE_COLOR_OPTIONS: null, 
   // AJAX Calls
-  REQUEST_CONVERSION_RATE: null
+  REQUEST_OTHERS_COUNTRIES: null
 
 });

@@ -47,17 +47,18 @@ handleClick = (event) => {
   render(){    
     const { dense, secondary } = this.state;
   return (
-    <Grid item xs={12} md={6}>
-    <Typography variant="h6" >
-     Seleccione el país de la bandera:
-    </Typography>
-    <div >
-      <List dense={dense}>
-        {this.generate(
-          
-        )}
-      </List>
-    </div>
-  </Grid>);
+    <React.Fragment>
+      <Typography variant="h6" >
+      Seleccione el país de la bandera:
+      </Typography>
+  
+        <List dense={dense}>
+          {this.generate(
+            
+          )}
+        </List>
+      
+   </React.Fragment>
+   );
   }
 }

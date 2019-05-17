@@ -12,30 +12,26 @@ const styles = {
   },
 };
 
-class Footer extends React.Component {
-  state = {
-    value: 0,
-  };
-
-  handleChange = (event, value) => {
+class Footer extends React.Component {  
+  handleChange = (event,index) => {
+ 
     store.dispatch({
-      type: types.REQUEST_OTHERS_COUNTRIES,
-      data: 'white'
-    })
-    this.setState({ value });
-  };
-
+      type: types.REQUEST_COUNTRIES_BY_CONTINENT,
+      data: index
+     }); 
+};
   render() {
     const { classes } = this.props;
     return (
       <Paper className={classes.root}>
         <Tabs
-          value={this.state.value}
+          value={store.getState().selectedTabIndex}
           onChange={this.handleChange}
           indicatorColor="primary"
           textColor="primary"
           centered
         >
+          
         {
           this.props.data.map((item) =>{
             return  <Tab label={item} key={item} />
@@ -52,3 +48,4 @@ Footer.propTypes = {
 };
 
 export default withStyles(styles)(Footer);
+

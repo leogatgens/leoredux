@@ -6,13 +6,16 @@ import Paper from '@material-ui/core/Paper';
 import {CountryImage} from './CountryImage'
 import {Options} from './Options'
 import store from '../stores/configureStore'
-
+import Button from '@material-ui/core/Button';
+import { ActionTypes as types} from '../ActionTypes';
 
 const styles =  ({
-  Paper : {padding : 20, marginTop : 20, marginBottom : 10 ,  height : 280}
+  Paper : {padding : 20, marginTop : 20, marginBottom : 10 ,  height : 300}
 });
 
 class TabPrincipal extends React.Component {
+
+  
   handleChange = key => (event, value) => {
 
     this.setState({
@@ -20,20 +23,42 @@ class TabPrincipal extends React.Component {
     });
   };
 
+  handleNext = () => {
+    store.dispatch({
+      type: types.NEXT_COUNTRY,
+      data: 'white'
+    });
+  }
+
+  countriesByContinent= () =>{
+    let filter =store.getState().continentFilterText;
+    let paises = store.getState().countries;
+    if(filter !== 'All'){
+      paises = store.getState().countries.filter(x => x.Continent === filter);  
+      console.log(filter);
+    }
+    console.log(paises);
+    return paises.slice(0,5);
+  }
+  
+
   render() {
-    
-    
+    const index = store.getState().indexCountry;
+    const  flagUrl = store.getState().countries[index].flagUrl;
 
     return (
       <Grid container spacing={8} >
         <Grid item xs={3}>
          <Paper style={styles.Paper} >
-         <CountryImage></CountryImage>
+         <CountryImage data = {flagUrl}></CountryImage>
         </Paper>         
         </Grid>
         <Grid item sm>
-        <Paper style={styles.Paper} >
-            <Options data={store.getState().countries.slice(0,5)}></Options>
+         <Paper style={styles.Paper} >
+            <Options data={this.countriesByContinent()}></Options>
+            <Button variant="contained" color="primary" style={{float:"right", marginRight: 5}} onClick={this.handleNext} >
+              Next
+            </Button>
          </Paper>
          
         </Grid>

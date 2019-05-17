@@ -1,14 +1,13 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import store from '../stores/configureStore'
 
-export function CountryImage() { 
 
-  const index = store.getState().indexCountry;
-  const {name, flagUrl} = store.getState().countries[index];
+export function CountryImage(props) { 
+
+
 
   return ( <React.Fragment>
-    <img src={flagUrl} alt="logo"  />
+    <img src={props.data} alt="logo"  />
     <Typography variant="h6" align="center">
       ¿País?
     </Typography>

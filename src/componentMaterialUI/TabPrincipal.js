@@ -33,7 +33,7 @@ class TabPrincipal extends React.Component {
         </Grid>
         <Grid item sm>
         <Paper style={styles.Paper} >
-            <Options data={store.getState().countries}></Options>
+            <Options data={store.getState().countries.slice(0,5)}></Options>
          </Paper>
          
         </Grid>

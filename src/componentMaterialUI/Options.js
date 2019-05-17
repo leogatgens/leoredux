@@ -12,13 +12,14 @@ constructor(props){
     dense: false,
     secondary: false,
   };
+
 }
 
 generate() {
   return this.props.data.map(value =>
-        <ListItem onClick={this.handleClick.bind(this,value)} key= {value}>
+        <ListItem onClick={this.handleClick.bind(this,value.name)} key= {value.name}>
             <ListItemText
-              primary= {value}
+              primary= {value.name}
               secondary={  this.state.secondary ? value : null }
             />
           </ListItem>,
@@ -27,8 +28,11 @@ generate() {
   
 
 handleClick = (event) => {    
+  const index = store.getState().indexCountry;
+  const  actualCountry = store.getState().countries[index];
+  
      console.log(event);
-    if(event === store.getState().country){
+    if(event === actualCountry.name){
       store.dispatch({
         type: types.CHANGE_COLOR,
         data: 'green'

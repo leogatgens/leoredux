@@ -1,13 +1,17 @@
 import { createStore } from 'redux'
 import { ActionTypes as types} from '../ActionTypes';
-import {paises,paises2} from '../containerMaterialUI/data'
+import {paises} from '../containerMaterialUI/data'
 
 var defaultState = {
   colorDivPrincipal : 'white',
   optionsBackgroundColor : 'blue',
   countries : paises,
-  imageUrl : 'http://localhost:3000/img/brazil-flag-button-square-xs.png',
-  country : 'Brazil'
+  indexCountry : 2
+}
+
+function getRandomCountry(){
+ let index = Math.floor(Math.random() * 5) ;
+ return index;
 }
 function colorsreducer(state = defaultState, action) {
   console.log({ 'action' : action.type ,
@@ -28,9 +32,8 @@ function colorsreducer(state = defaultState, action) {
        return {
          ...state,
          colorDivPrincipal : action.data,
-         countries : paises2,
-         imageUrl : 'http://localhost:3000/img/china-flag-button-square-xs.png',
-         country : "China"
+         countries : paises,
+         indexCountry :  getRandomCountry()
        }
     default:
       return state

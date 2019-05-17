@@ -27,7 +27,6 @@ class Footer extends React.Component {
 
   render() {
     const { classes } = this.props;
-
     return (
       <Paper className={classes.root}>
         <Tabs
@@ -41,9 +40,7 @@ class Footer extends React.Component {
           this.props.data.map((item) =>{
             return  <Tab label={item} key={item} />
           })
-
-        }         
-       
+        }
         </Tabs>
       </Paper>
     );

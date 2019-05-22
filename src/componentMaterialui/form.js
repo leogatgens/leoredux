@@ -3,12 +3,6 @@ import Grid from './node_modules/@material-ui/core/Grid';
 import Typography from './node_modules/@material-ui/core/Typography';
 import TextField from './node_modules/@material-ui/core/TextField';
 import Button from './node_modules/@material-ui/core/Button';
-
-
-import classNames from './node_modules/classnames';
-import PropTypes from './node_modules/prop-types';
-import { withStyles } from './node_modules/@material-ui/core/styles';
-import IconButton from './node_modules/@material-ui/core/IconButton';
 import InputAdornment from './node_modules/@material-ui/core/InputAdornment';
 import MenuItem from './node_modules/@material-ui/core/MenuItem';
 

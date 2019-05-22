@@ -7,7 +7,7 @@ export function CountryImage(props) {
 
 
   return ( <React.Fragment>
-    <img src={props.data} alt="logo"  />
+    <img src={props.data.flagUrl} alt="logo"  />
     <Typography variant="h6" align="center">
       ¿País?
     </Typography>

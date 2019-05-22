@@ -1,6 +1,6 @@
 
 
-//export const paises = ['Alemania','Suiza','Costa Rica','Brazil','China'];
+
 export const paises = [
     {
         "name": "Alemania",
@@ -15,7 +15,10 @@ export const paises = [
     { "name": "Brazil", "flagUrl": "http://localhost:3000/img/brazil-flag-button-square-xs.png", "Continent": "America" },
     { "name": "China", "flagUrl": "http://localhost:3000/img/china-flag-button-square-xs.png", "Continent": "Asia" },
     { "name": "Japan", "flagUrl": "http://localhost:3000/img/japan-flag-button-square-xs.png" , "Continent": "Asia"},
-    { "name": "Costa Rica", "flagUrl": "http://localhost:3000/img/costa-rica-flag-button-square-xs.png", "Continent": "America" }
+    { "name": "Costa Rica", "flagUrl": "http://localhost:3000/img/costa-rica-flag-button-square-xs.png", "Continent": "America" },
+    { "name": "Congo", "flagUrl": "", "Continent": "Africa"},
+    { "name": "Australia", "flagUrl": "", "Continent": "Oceania"}
+    
 ];
 
 

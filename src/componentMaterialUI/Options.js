@@ -2,7 +2,6 @@ import React from 'react';
 import store from '../stores/configureStore'
 import { ActionTypes as types} from '../ActionTypes';
 import {List,ListItem,ListItemText} from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 export class  Options extends React.Component { 
@@ -29,9 +28,7 @@ generate() {
 
 handleClick = (event) => {    
   const index = store.getState().indexCountry;
-  const  actualCountry = store.getState().countries[index];
-  
-     console.log(event);
+  const  actualCountry = store.getState().countriesToShow[index];
     if(event === actualCountry.name){
       store.dispatch({
         type: types.CHANGE_COLOR,

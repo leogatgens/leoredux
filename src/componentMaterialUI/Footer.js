@@ -13,8 +13,7 @@ const styles = {
 };
 
 class Footer extends React.Component {  
-  handleChange = (event,index) => {
- 
+  handleChange = (event,index) => { 
     store.dispatch({
       type: types.REQUEST_COUNTRIES_BY_CONTINENT,
       data: index

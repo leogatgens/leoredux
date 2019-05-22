@@ -13,9 +13,7 @@ const styles =  ({
   Paper : {padding : 20, marginTop : 20, marginBottom : 10 ,  height : 300}
 });
 
-class TabPrincipal extends React.Component {
-
-  
+class TabPrincipal extends React.Component {  
   handleChange = key => (event, value) => {
 
     this.setState({
@@ -30,21 +28,11 @@ class TabPrincipal extends React.Component {
     });
   }
 
-  countriesByContinent= () =>{
-    let filter =store.getState().continentFilterText;
-    let paises = store.getState().countries;
-    if(filter !== 'All'){
-      paises = store.getState().countries.filter(x => x.Continent === filter);  
-      console.log(filter);
-    }
-    console.log(paises);
-    return paises.slice(0,5);
-  }
-  
+
 
   render() {
     const index = store.getState().indexCountry;
-    const  flagUrl = store.getState().countries[index].flagUrl;
+    const  flagUrl = store.getState().countriesToShow[index];
 
     return (
       <Grid container spacing={8} >
@@ -55,7 +43,7 @@ class TabPrincipal extends React.Component {
         </Grid>
         <Grid item sm>
          <Paper style={styles.Paper} >
-            <Options data={this.countriesByContinent()}></Options>
+            <Options data={store.getState().countriesToShow}></Options>
             <Button variant="contained" color="primary" style={{float:"right", marginRight: 5}} onClick={this.handleNext} >
               Next
             </Button>

@@ -1,7 +1,8 @@
 import React from 'react';
 import  {Header}  from './componentMaterialUI/Header';
 import  Footer  from './componentMaterialUI/Footer';
-import  TabPrincipal  from './componentMaterialUI/TabPrincipal';
+//import  TabPrincipal  from './componentMaterialUI/TabPrincipal';
+import  TabPrincipal  from './componentMaterialUI/TabPrincipalREST';
 import store from './stores/configureStore'
 import './App.css';
 import {Continents} from './containerMaterialUI/data'

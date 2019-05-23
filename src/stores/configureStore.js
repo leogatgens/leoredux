@@ -1,13 +1,9 @@
 import { createStore } from 'redux'
 import { ActionTypes as types} from '../ActionTypes';
 import { Continents } from '../containerMaterialUI/data';
-
 import { countriesByContinent } from './getContinentText';
 
-
-
 const algo = countriesByContinent(Continents.indexOf('All'));
-
 //Valores defualt de los estados
 var defaultState = {
   colorDivPrincipal : 'white',
@@ -15,21 +11,21 @@ var defaultState = {
   countriesToShow :algo.listaPaises,
   indexCountry : algo.paisActual,
   selectedTabIndex : 0
-
 }
+
 function colorsreducer(state = defaultState, action) {
-  //  console.log({ 'action' : action.type ,
-  //  valor : action.data});
-  // console.log(defaultState);
+   console.log({ 'action' : action.type ,
+   valor : action.data});
+   
+   let resultado = null;
   switch (action.type) {
     case types.CHANGE_COLOR :       
       return {
         ...state,
-        colorDivPrincipal : action.data
-        
+        colorDivPrincipal : action.data        
        };      
-       case types.REQUEST_COUNTRIES_BY_CONTINENT :
-         let resultado =  countriesByContinent(action.data);
+    case types.REQUEST_COUNTRIES_BY_CONTINENT :
+          resultado =  countriesByContinent(action.data);
        return {
          ...state,        
          colorDivPrincipal : 'white',
@@ -37,13 +33,14 @@ function colorsreducer(state = defaultState, action) {
          indexCountry : resultado.paisActual,      
          selectedTabIndex : action.data
        }
-       case types.NEXT_COUNTRY:
-          
+    case types.NEXT_COUNTRY:   
+     resultado =  countriesByContinent(action.data);       
        return {
          ...state,
-         colorDivPrincipal : 'white',
-         
-         
+         colorDivPrincipal : 'white', 
+         countriesToShow : resultado.listaPaises , 
+         indexCountry : resultado.paisActual,      
+            
        }
     default:
       return state

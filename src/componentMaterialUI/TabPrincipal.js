@@ -24,7 +24,7 @@ class TabPrincipal extends React.Component {
   handleNext = () => {
     store.dispatch({
       type: types.NEXT_COUNTRY,
-      data: 'white'
+      data: store.getState().selectedTabIndex
     });
   }
 

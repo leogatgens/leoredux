@@ -8,6 +8,20 @@ function getRandomCountry(countriesToShow) {
   return index;
 }
 
+function calcularIndiceMaximoParaObtenerCincoPaises(longitud){
+  let indiceInicialMaximo = (longitud -5);
+  if(indiceInicialMaximo < 0 ){    
+    return 0;
+  }else{
+    let indiceInicialTemp = longitud;
+    while(indiceInicialTemp > indiceInicialMaximo){
+       indiceInicialTemp  = Math.floor(Math.random() * longitud);
+    }
+    return indiceInicialTemp;
+  }
+  
+
+}
 
 export function countriesByContinent(indicefilter) {
   let filter = Continents[indicefilter];
@@ -18,8 +32,10 @@ export function countriesByContinent(indicefilter) {
     listaAMostar = paises;
   }
 
-  listaAMostar = listaAMostar.slice(0, 5);
-  let DatosJuego = { listaPaises: listaAMostar, paisActual: getRandomCountry(listaAMostar) };
+  let indiceRandom = calcularIndiceMaximoParaObtenerCincoPaises(listaAMostar.length);
+
+  let listaFinal = listaAMostar.slice(indiceRandom, (indiceRandom + 5));
+  let DatosJuego = { listaPaises: listaFinal, paisActual: getRandomCountry(listaFinal) };
   return DatosJuego;
 }
 

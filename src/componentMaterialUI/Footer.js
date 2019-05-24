@@ -12,7 +12,8 @@ const styles = {
   },
 };
 
-class Footer extends React.Component {  
+class Footer extends React.Component { 
+   
   handleChange = (event,index) => { 
      store.dispatch(actions.RequestContinents(index));
 };

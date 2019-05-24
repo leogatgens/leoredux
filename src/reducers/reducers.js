@@ -36,7 +36,7 @@ function Uireducer(state = defaultUiState, action) {
         ...state,
         countriesToShow: resultado.listaPaises,
         indexCountry: resultado.paisActual,
-        selectedTabIndex: action.data
+        selectedTabIndex: action.index
       };
     case 'NEXT_COUNTRY':
       resultado = countriesByContinent(action.index);

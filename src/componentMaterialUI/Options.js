@@ -1,6 +1,7 @@
 import React from 'react';
 import store from '../stores/configureStore'
-import { ActionTypes as types} from '../ActionTypes';
+import * as  actions from '../actions/actions'
+
 import {List,ListItem,ListItemText} from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 
@@ -19,7 +20,7 @@ generate() {
         <ListItem onClick={this.handleClick.bind(this,value.name)} key= {value.name}>
             <ListItemText
               primary= {value.name}
-              secondary={  this.state.secondary ? value : null }
+             
             />
           </ListItem>,
   );
@@ -27,22 +28,18 @@ generate() {
   
 
 handleClick = (event) => {    
-  const index = store.getState().indexCountry;
-  const  actualCountry = store.getState().countriesToShow[index];
+  const index = store.getState().todos.indexCountry;
+  const  actualCountry = store.getState().todos.countriesToShow[index];
+
     if(event === actualCountry.name){
-      store.dispatch({
-        type: types.CHANGE_COLOR,
-        data: 'green'
-      })
+     store.dispatch(actions.CambiarFondo('green'));
+    
     }else{
-      store.dispatch({
-        type: types.CHANGE_COLOR,
-        data: 'red'
-      })
+      store.dispatch(actions.CambiarFondo('red'));
     }     
   }   
   render(){    
-    const { dense, secondary } = this.state;
+    const { dense } = this.state;
   return (
     <React.Fragment>
       <Typography variant="h6" >

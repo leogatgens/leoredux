@@ -1,5 +1,5 @@
-import { Continents } from '../containerMaterialUI/data';
-import { paises } from '../containerMaterialUI/data'
+import { Continents } from '../data';
+import { paises } from '../data'
 
 
 function getRandomCountry(countriesToShow) {

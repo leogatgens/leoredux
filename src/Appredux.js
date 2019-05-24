@@ -3,11 +3,11 @@ import { Title } from './componentsRedux/Title';
 import { AuthorImage } from './componentsRedux/AuthorImage';
 import { Options } from './componentsRedux/Options';
 import store from './stores/configureStore'
-import { ActionTypes as types} from './ActionTypes';
+
 import './App.css';
 
 
-const paises = ['Costa Rica','Panama','Guatemala','Nicaragua','El Salvador','Honduras'];
+
 class App extends React.Component { 
 
 componentDidMount(){
@@ -26,11 +26,11 @@ manejarEventoClick(){
 render(){  
   return (
     <div>
-    <div style={{background:store.getState().colorDivPrincipal, height : 500} }>
+    <div style={{background:store.getState().todos.colorDivPrincipal, height : 500} }>
     <Title></Title>
-    <AuthorImage  ></AuthorImage>
+    {/* <AuthorImage  ></AuthorImage>
     <Options></Options>
-     <button onClick={this.manejarEventoClick}>presioname</button>
+     <button onClick={this.manejarEventoClick}>presioname</button> */}
     </div>
     <div>
       

@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import store from '../stores/configureStore'
-import { ActionTypes as types} from '../ActionTypes';
+import * as  actions from '../actions/actions'
 const styles = {
   root: {
     flexGrow: 1,
@@ -14,17 +14,14 @@ const styles = {
 
 class Footer extends React.Component {  
   handleChange = (event,index) => { 
-    store.dispatch({
-      type: types.REQUEST_COUNTRIES_BY_CONTINENT,
-      data: index
-     }); 
+     store.dispatch(actions.RequestContinents(index));
 };
   render() {
     const { classes } = this.props;
     return (
       <Paper className={classes.root}>
         <Tabs
-          value={store.getState().selectedTabIndex}
+          value={store.getState().todos.selectedTabIndex}
           onChange={this.handleChange}
           indicatorColor="primary"
           textColor="primary"

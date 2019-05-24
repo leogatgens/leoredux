@@ -7,7 +7,7 @@ import {CountryImage} from './CountryImage'
 import {Options} from './Options'
 import store from '../stores/configureStore'
 import Button from '@material-ui/core/Button';
-import { ActionTypes as types} from '../ActionTypes';
+
 
 const styles =  ({
   Paper : {padding : 20, marginTop : 20, marginBottom : 10 ,  height : 300}

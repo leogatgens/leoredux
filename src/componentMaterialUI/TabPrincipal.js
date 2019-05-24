@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import {CountryImage} from './CountryImage'
-import {Options} from './Options'
-import store from '../stores/configureStore'
+import {CountryImage} from './CountryImage';
+import {Options} from './Options';
+import store from '../stores/configureStore';
 import Button from '@material-ui/core/Button';
-import { ActionTypes as types} from '../ActionTypes';
+import * as  actions from '../actions/actions';
 
 const styles =  ({
   Paper : {padding : 20, marginTop : 20, marginBottom : 10 ,  height : 300}
@@ -22,17 +22,17 @@ class TabPrincipal extends React.Component {
   };
 
   handleNext = () => {
-    store.dispatch({
-      type: types.NEXT_COUNTRY,
-      data: store.getState().selectedTabIndex
-    });
+ 
+    store.dispatch(actions.nextCountry(store.getState().todos.selectedTabIndex));
   }
 
 
 
   render() {
-    const index = store.getState().indexCountry;
-    const  flagUrl = store.getState().countriesToShow[index];
+ 
+    
+    const index = store.getState().todos.indexCountry;
+    const  flagUrl = store.getState().todos.countriesToShow[index];
 
     return (
       <Grid container spacing={8} >
@@ -43,7 +43,7 @@ class TabPrincipal extends React.Component {
         </Grid>
         <Grid item sm>
          <Paper style={styles.Paper} >
-            <Options data={store.getState().countriesToShow}></Options>
+            <Options data={store.getState().todos.countriesToShow}></Options>
             <Button variant="contained" color="primary" style={{float:"right", marginRight: 5}} onClick={this.handleNext} >
               Next
             </Button>

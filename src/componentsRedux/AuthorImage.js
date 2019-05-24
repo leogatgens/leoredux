@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActionTypes as types} from '../ActionTypes';
+
 import store from '../stores/configureStore'
 
 
@@ -14,7 +14,7 @@ export function AuthorImage(props) {
 
   function manejarEventoClick(){
     store.dispatch({
-      type: types.CHANGE_COLOR,
+      type: 'CHANGE_COLOR',
       data: 'purple'
     })
   }

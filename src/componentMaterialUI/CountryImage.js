@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 
 export function CountryImage(props) { 
 
-
+  
 
   return ( 
 

@@ -15,15 +15,15 @@ const styles = {
 class Footer extends React.Component { 
    
   handleChange = (event,index) => { 
-     store.dispatch(actions.RequestContinents(index));
+  this.props.handleIndexChange(index);
 };
   render() {
     const { classes } = this.props;
-  const indice =  0 ;// store.getState().todos.selectedTabIndex;
+  
     return (
       <Paper className={classes.root}>
         <Tabs
-          value={indice}
+          value={this.props.selectedIndex}
           onChange={this.handleChange}
           indicatorColor="primary"
           textColor="primary"

@@ -28,7 +28,7 @@ class TabPrincipal extends React.Component {
   };
 
   handleSelectedCountry = (event) => {
-    console.log(event);
+    
     this.props.dispatch(actions.CambiarFondo(event));
   }
 
@@ -38,7 +38,7 @@ class TabPrincipal extends React.Component {
    // this.props.dispatch(actions.fetchPosts());
   }
   render() {    
-    console.log(this);
+    
     const index = this.props.mapProps.countryreducer.indexCountry;
     const  flagUrl = this.props.mapProps.countryreducer.countriesToShow[index];
     const countriesToShow = this.props.mapProps.countryreducer.countriesToShow; 

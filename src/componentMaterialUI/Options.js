@@ -24,9 +24,7 @@ generate() {
 }
   
 
-handleClick = (event) => {    
-
-
+handleClick = (event) => {   
     if(event === this.props.actualCountry.name){
       this.props.handleSelectedCountry('green');   
     
@@ -35,7 +33,7 @@ handleClick = (event) => {
     }     
   }   
   render(){    
-    console.log(this.props);
+    
     const { dense } = this.state;
   return (
     <React.Fragment>

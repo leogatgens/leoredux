@@ -9,13 +9,15 @@ var defaultState = {
   indexCountry: listaPaisesInicial.paisActual,
   selectedTabIndex: 0
 };
+
+
 var defaultUiState = {
   colorDivPrincipal: 'white'
 };
 export  function Uireducer(state = defaultUiState, action) {
-  console.log({
-    action
-  });
+  // console.log({
+  //   action
+  // });
   switch (action.type) {
     case 'CHANGE_COLOR':
       return {
@@ -27,7 +29,7 @@ export  function Uireducer(state = defaultUiState, action) {
   }
 }
 export  function countryreducer(state = defaultState, action) {
-  console.log({action});
+  //console.log({action});
   let resultado = null;
   switch (action.type) {
     case 'REQUEST_COUNTRIES_BY_CONTINENT':

@@ -24,6 +24,7 @@ class TabPrincipal extends React.Component {
   handleNext = () => {
  
     store.dispatch(actions.nextCountry(store.getState().todos.selectedTabIndex));
+    store.dispatch(actions.fetchPosts());
   }
 
 

@@ -28,9 +28,9 @@ render(){
     <div>
     <div style={{background:store.getState().todos.colorDivPrincipal, height : 500} }>
     <Title></Title>
-    {/* <AuthorImage  ></AuthorImage>
+    * <AuthorImage  ></AuthorImage>
     <Options></Options>
-     <button onClick={this.manejarEventoClick}>presioname</button> */}
+     <button onClick={this.manejarEventoClick}>presioname</button> 
     </div>
     <div>
       

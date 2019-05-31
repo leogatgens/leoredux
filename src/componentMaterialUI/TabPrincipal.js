@@ -15,11 +15,13 @@ const styles =  ({
 
 class TabPrincipal extends React.Component {  
 
-  state = {
-    countriesToShow: [],
-    indexCountry: 0,
-    selectedTabIndex: 0
-  };
+  componentDidMount() {      
+    
+    this.props.dispatch(actions.loadAuthors());
+     
+  }  
+
+
 
   handleChange = key => (event, value) => {
     this.setState({
@@ -33,8 +35,9 @@ class TabPrincipal extends React.Component {
   }
 
   handleNext = () => {
-      let algo = this.props.mapProps.countryreducer.selectedTabIndex;
-   this.props.dispatch(actions.nextCountry(algo));
+      let index = this.props.mapProps.countryreducer.selectedTabIndex;
+   this.props.dispatch(actions.nextCountry(index));
+   this.props.dispatch(actions.CambiarFondo('white'));
    // this.props.dispatch(actions.fetchPosts());
   }
   render() {    

@@ -8,11 +8,11 @@ import * as actions from "./redux/actions/actions";
 import { connect } from "react-redux";
 
 class App extends React.Component {
-  state = {
-    colorDivPrincipal: "white"
-  };
 
+
+  
   handleIndexChange = index => {
+    this.props.dispatch(actions.CambiarFondo('white'));
     this.props.dispatch(actions.RequestContinents(index));
   };
 

@@ -5,35 +5,44 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import {CountryImage} from './CountryImage';
 import {Options} from './Options';
-import store from '../stores/configureStore';
 import Button from '@material-ui/core/Button';
-import * as  actions from '../actions/actions';
+import * as  actions from '../redux/actions/actions';
+import {connect} from 'react-redux'
 
 const styles =  ({
   Paper : {padding : 20, marginTop : 20, marginBottom : 10 ,  height : 300}
 });
 
 class TabPrincipal extends React.Component {  
-  handleChange = key => (event, value) => {
 
+  state = {
+    countriesToShow: [],
+    indexCountry: 0,
+    selectedTabIndex: 0
+  };
+
+  handleChange = key => (event, value) => {
     this.setState({
       [key]: value,
     });
   };
 
-  handleNext = () => {
- 
-    store.dispatch(actions.nextCountry(store.getState().todos.selectedTabIndex));
-    store.dispatch(actions.fetchPosts());
+  handleSelectedCountry = (event) => {
+    console.log(event);
+    this.props.dispatch(actions.CambiarFondo(event));
   }
 
-
-
-  render() {
- 
-    
-    const index = store.getState().todos.indexCountry;
-    const  flagUrl = store.getState().todos.countriesToShow[index];
+  handleNext = () => {
+      let algo = this.props.mapProps.countryreducer.selectedTabIndex;
+   this.props.dispatch(actions.nextCountry(algo));
+   // this.props.dispatch(actions.fetchPosts());
+  }
+  render() {    
+    console.log(this);
+    const index = this.props.mapProps.countryreducer.indexCountry;
+    const  flagUrl = this.props.mapProps.countryreducer.countriesToShow[index];
+    const countriesToShow = this.props.mapProps.countryreducer.countriesToShow; 
+    const  actualCountry = countriesToShow[index];
 
     return (
       <Grid container spacing={8} >
@@ -44,7 +53,7 @@ class TabPrincipal extends React.Component {
         </Grid>
         <Grid item sm>
          <Paper style={styles.Paper} >
-            <Options data={store.getState().todos.countriesToShow}></Options>
+            <Options data={countriesToShow} handleSelectedCountry={this.handleSelectedCountry} actualCountry={actualCountry}></Options>
             <Button variant="contained" color="primary" style={{float:"right", marginRight: 5}} onClick={this.handleNext} >
               Next
             </Button>
@@ -56,9 +65,12 @@ class TabPrincipal extends React.Component {
     );
   }
 }
-
 TabPrincipal.propTypes = {
-  classes: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
-
-export default withStyles(styles)(TabPrincipal);
+function mapStateToProps(state,ownProps){
+  return {
+    mapProps : state
+  };
+}
+export default connect(mapStateToProps )(withStyles(styles)(TabPrincipal));

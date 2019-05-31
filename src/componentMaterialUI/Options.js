@@ -1,7 +1,4 @@
 import React from 'react';
-import store from '../stores/configureStore'
-import * as  actions from '../actions/actions'
-
 import {List,ListItem,ListItemText} from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 
@@ -28,17 +25,17 @@ generate() {
   
 
 handleClick = (event) => {    
-  const index = store.getState().todos.indexCountry;
-  const  actualCountry = store.getState().todos.countriesToShow[index];
 
-    if(event === actualCountry.name){
-     store.dispatch(actions.CambiarFondo('green'));
+
+    if(event === this.props.actualCountry.name){
+      this.props.handleSelectedCountry('green');   
     
-    }else{
-      store.dispatch(actions.CambiarFondo('red'));
+    }else{     
+      this.props.handleSelectedCountry('red');
     }     
   }   
   render(){    
+    console.log(this.props);
     const { dense } = this.state;
   return (
     <React.Fragment>

@@ -2,29 +2,27 @@ import React from 'react';
 import  {Header}  from './componentMaterialUI/Header';
 import  Footer  from './componentMaterialUI/Footer';
 import  TabPrincipal  from './componentMaterialUI/TabPrincipal';
-import store from './stores/configureStore'
+
 import './App.css';
 import {Continents} from './data'
+import configureStore from './redux/configureStore';
+import { Provider as ReduxProvider } from "react-redux";
 
-
+const store = configureStore();
 class App extends React.Component { 
-  
-componentDidMount(){
-  store.subscribe(() => {
-    this.setState({});
-  })  
-}  
 
 render(){  
+  console.log(this);
   return (
+    <ReduxProvider store={store}>
     <React.Fragment>
-    <div style={{background:store.getState().Uireducer.colorDivPrincipal, height : 470} }>
+    <div style={{background:store.getState().colorDivPrincipal, height : 470} }>
      <Header></Header> 
       <TabPrincipal></TabPrincipal>
      <Footer data = {Continents}></Footer>     
-    </div>
-  
+    </div>  
     </React.Fragment>
+    </ReduxProvider>
   );
 }
 }

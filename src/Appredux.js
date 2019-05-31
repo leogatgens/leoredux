@@ -2,7 +2,7 @@ import React from 'react';
 import { Title } from './componentsRedux/Title';
 import { AuthorImage } from './componentsRedux/AuthorImage';
 import { Options } from './componentsRedux/Options';
-import store from './stores/configureStore'
+import store from './redux/configureStore'
 
 import './App.css';
 

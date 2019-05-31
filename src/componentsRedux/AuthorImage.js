@@ -1,6 +1,6 @@
 import React from 'react';
 
-import store from '../stores/configureStore'
+import store from '../redux/configureStore'
 
 
 var styles1 = {    

@@ -4,8 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import store from '../stores/configureStore'
-import * as  actions from '../actions/actions'
+import store from '../redux/configureStore'
+import * as  actions from '../redux/actions/actions'
 const styles = {
   root: {
     flexGrow: 1,
@@ -19,10 +19,11 @@ class Footer extends React.Component {
 };
   render() {
     const { classes } = this.props;
+  const indice =  0 ;// store.getState().todos.selectedTabIndex;
     return (
       <Paper className={classes.root}>
         <Tabs
-          value={store.getState().todos.selectedTabIndex}
+          value={indice}
           onChange={this.handleChange}
           indicatorColor="primary"
           textColor="primary"
